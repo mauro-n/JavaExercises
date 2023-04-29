@@ -12,6 +12,9 @@ public class Exercise2 {
 	private String produto;
 	private double precoCusto;
 	private double precoVenda;
+	private double totalPrecoCusto = 0;
+	private double totalPrecoVenda = 0;
+	
 	
 	public void registerProduct(int qtd) {
 		for (int i = 0; i < qtd; i++) {
@@ -22,6 +25,9 @@ public class Exercise2 {
 			this.precoCusto = doubleInput.nextDouble();
 			System.out.println("Insert the product price: ");
 			this.precoVenda = doubleInput.nextDouble();
+			
+			this.totalPrecoCusto += this.precoCusto;
+			this.totalPrecoVenda += this.precoVenda;
 			
 			System.out.println("Info about the product: ");
 			if (this.precoCusto == this.precoVenda) {
@@ -35,9 +41,12 @@ public class Exercise2 {
 				{
 					System.out.println("There will be gain --");
 				}
-			}
-			
+			}	
 		}
+		
+		System.out.printf("A media de custo e: %,.2f%n", this.totalPrecoCusto/qtd);
+		System.out.printf("A media de preco de venda e: %,.2f%n", this.totalPrecoVenda/qtd);
+		
 		
 	}
 	
